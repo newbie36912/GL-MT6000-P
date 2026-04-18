@@ -1,0 +1,46 @@
+uci -q batch << EOI
+# Wireless radio0 specific settings
+set wireless.radio0.disabled='0'
+set wireless.radio0.country='PT'
+set wireless.radio0.band='2g'
+set wireless.radio0.channel='11'
+set wireless.radio0.htmode='HE20'
+set wireless.radio0.txpower='20'
+set wireless.radio0.cell_density='0'
+set wireless.radio0.vendor_vht='1'
+set wireless.default_radio0.network='lan'
+set wireless.default_radio0.ieee80211w='2'
+set wireless.default_radio0.noscan='1'
+set wireless.default_radio0.dtim_period='2'
+set wireless.default_radio0.beacon_int='100'
+set wireless.default_radio0.ieee80211n='1'
+set wireless.default_radio0.ocv='0'
+set wireless.default_radio0.ssid='YourSSID-2G'
+set wireless.default_radio0.encryption='sae'
+set wireless.default_radio0.key='YourPassword'
+# Wireless radio1 specific settings
+set wireless.radio1.disabled='0'
+set wireless.radio1.country='PT'
+set wireless.radio1.band='5g'
+set wireless.radio1.channel='44'
+set wireless.radio1.htmode='HE80'
+set wireless.radio1.txpower='10'
+set wireless.radio1.cell_density='1'
+set wireless.default_radio1.network='lan'
+set wireless.default_radio1.ieee80211w='2'
+set wireless.default_radio1.noscan='1'
+set wireless.default_radio1.dtim_period='2'
+set wireless.default_radio1.beacon_int='100'
+set wireless.default_radio1.ocv='0'
+set wireless.default_radio1.ssid='YourSSID-5G'
+set wireless.default_radio1.encryption='sae'
+set wireless.default_radio1.key='YourPassword'
+# Firewall settings
+set firewall.@zone.input='DROP'
+set firewall.@zone.forward='DROP'
+# uHTTPd settings
+set uhttpd.main.redirect_https='1'
+commit wireless
+commit firewall
+commit uhttpd
+EOI
